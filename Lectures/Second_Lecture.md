@@ -1,5 +1,5 @@
 # Second Lecture 8/31/21
-####Variables
+#### Variables
 Variables are a storage location that holds a value
 - Strings 
 - Floats
