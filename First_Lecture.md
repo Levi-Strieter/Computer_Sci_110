@@ -27,3 +27,4 @@ Output-
 4. Total Painted Area = House Walls - (Window Area - Door Area)
 
 ######Use Psuedo Code to test Algo 
+
