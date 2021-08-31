@@ -6,18 +6,18 @@ Figure out Surface area for painter of a house
 ######Decide Input and outputs
 
 Input- 
-..*Length of house
-..*Width of house
-..*Height of house
-..*Length of windows 
-..*Height of windows 
-..*Height of door
-..*Length of door
-..*Number of windows 
-..*number of doors 
+- Length of house
+- Width of house
+- Height of house
+- Length of windows 
+- Height of windows 
+- Height of door
+- Length of door
+- Number of windows 
+- number of doors 
 
 Output- 
-..*Area to be painted
+- Area to be painted
 
 ######Break Down the Process into tasks 
 
