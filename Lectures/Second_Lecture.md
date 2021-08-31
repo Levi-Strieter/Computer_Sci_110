@@ -1,4 +1,4 @@
-#Second Lecture 8/31/21
+# Second Lecture 8/31/21
 ####Variables
 Variables are a storage location that holds a value
 - Strings 
@@ -10,7 +10,7 @@ amount = amount + interest
 - evaluates right hand side "amount" first then becomes the new amount + interest
 - right hand side is computed first then its variable is updated 
 
-######variable naming 
+###### variable naming 
 1. must be letter for first character or '_'
 2. can't use symbols 
 3. case sensitive 
@@ -21,17 +21,17 @@ amount = amount + interest
 - Constants are upper case ex- PENNY_VAL = 0.01
 
 
-######arithmitic
+###### arithmitic
 - ** for powers
 - (a+b)/2 not a+b/2
 - can import math for things like "sin(x)"
 
-######comments
+###### comments
 - use hashtag "#"
 - anything to right of "#" is not excuted or even read by python compiler
 - only use comments after tricky bit of code
 
-######user input
+###### user input
 ```python
 testInput = input("please enter message")
 print(testInput)
@@ -48,7 +48,7 @@ print(testInput * 2)
 - only allows a number to be entered 
 - line 3 would print "10" if number entered is "5"
 
-######Printing 
+###### Printing 
 - comma needed to seperate vals in print()
 ```python
 var = 43
