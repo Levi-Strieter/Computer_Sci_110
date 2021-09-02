@@ -47,7 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-These are all teh notes for the cs 110 at marshall university with professor Wahjudi teaching. I use some more advanced programming that isn't convered in lectures so my code is probably not the best to copy
+These are all the notes for the cs 110 at marshall university with professor Wahjudi teaching. I use some more advanced programming that isn't convered in lectures so my code is probably not the best to copy
 
 Here's why:
 * Has all the labs with instructions on how to complete 

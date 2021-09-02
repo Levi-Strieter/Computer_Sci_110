@@ -43,9 +43,9 @@ width = int(input("type width of rectangle:"))
 area = length * width
 perimeter = (length * 2) + (width * 2)
 
-pythagoreanTheorem= lambda a, b : a**2 + b**2
+pythagoreanTheorem= lambda a, b : math.sqrt(a**2 + b**2)
 diagnol = pythagoreanTheorem(length, width)
-print("area:", area, "\nperimeter:", perimeter, "\ndiagnol length:", math.sqrt(diagnol), "\n")
+print("area:", area, "\nperimeter:", perimeter, "\ndiagnol length:", diagnol, "\n")
 
 '''Write a program that asks the user to input
 •	The number of gallons of gas in the tank
