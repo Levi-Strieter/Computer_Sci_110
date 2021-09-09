@@ -1,4 +1,4 @@
-# History of Computers 
+# Loops 
 
 ###### While Loop
 - conditional loop that is executed as long as the condition is satisfied 
@@ -63,3 +63,5 @@ print("%9.2f")
 - lists, data types dont matter
     - radi = [1, 2.3, "Fred"]
     - radi[0], # 1
+
+

@@ -14,6 +14,8 @@ Output-
 1. surface area of house
 2. total cost
 
+get window & door L & H & house L & W & H
+
 totalArea = (2 * (width * height) + 2 * (length * height)) - doorAmnt * (doorLength * Width * Height) - windowAmnt(windowLength * windowWidth * windowHeight)
 cost = totalArea * costPerSquareFoot
 '''
