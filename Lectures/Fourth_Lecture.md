@@ -61,7 +61,26 @@ print("%9.2f")
 
 ###### data structure 
 - lists, data types dont matter
+```python
     - radi = [1, 2.3, "Fred"]
     - radi[0], # 1
+    - radi.append("what")
+    - radi.insert(3, 2) # 1, 2.3, 3, Fred
+    - radi.remove()
+    - radi.reverse() #sort from greatest to least( cant sort different data types )
+    - radi.sort() # sort from least to greatest( cant sort different data types )
+    - radi.pop() 
+```
+- built in data types of lists
+    - len, max, min, sum
 
+```python
+index = 0
+while index < len(radi):
+    print(radi[index])
+    index = index + 1 # index += 1
+                      # same thing^^
+for x in radi:
+    print(x)
+```
 

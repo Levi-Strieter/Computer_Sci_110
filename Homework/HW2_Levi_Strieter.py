@@ -45,6 +45,9 @@ while num >= base:
     counter += 1
 print(num, "has", counter, "digits in it\n")
 
+
+
+
 '''
 Write a unit conversion program that asks the users from which  
 unit they want to convert (ft or mi) and to which unit they want to convert 
@@ -63,19 +66,21 @@ units = {
     4: "m",
     5: "cm",
 }
-
 metricToMetric = {
     1: 1000, # Kilo
     2: .01,  # Centi
     3: .001  # Meter
 }
-
+standardToStandard = {
+    1: 5280,           # mi -> ft 
+    2: .000189394,     # ft -> mi
+}
 standardMetric = {
     1 : 1.60934,                 # mi -> km
     2 : 1609.33999997549,        # mi -> m
     3 : 160933.99999754899181,   # mi -? cm
-    4 : 0.0003048,               # ft -> km
 
+    4 : 0.0003048,               # ft -> km
     5 : 0.3048,                  # ft -> m
     6 : 30.48,                   # ft -> cm
 }
@@ -92,23 +97,68 @@ while True:
         print("Please choose an int from the list")
 
 def metricToMetricConversion(x,y,val):
+    # Kilo
     if x == 3 and y == 4:  # Km -> m
-        convertedVal = metricToMetric.get(1) * val
+        convertedVal = metricToMetric.get(3) * val
         return convertedVal
-    if x == 3 and y == 5:
+    if x == 3 and y == 5: # km -> cm 
         convertedVal = metricToMetric.get(2) * val
         return convertedVal
-    if x == 3 and y == 4:
+    # Meter
+    if x == 4 and y == 3:  # m -> km
+        convertedVal = metricToMetric.get(1) * val
+        return convertedVal
+    if x == 4 and y == 5: # m -> cm 
+        convertedVal = metricToMetric.get(3) * val
+        return convertedVal   
+    # Centimeter 
+    if x == 5 and y == 3:  # cm -> km
+        convertedVal = metricToMetric.get(1) * val
+        return convertedVal
+    if x == 5 and y == 4: # cm -> m 
+        convertedVal = metricToMetric.get(2) * val
+        return convertedVal 
+
+def standardToStandardConversion(x, y, val):
+    if x == 1 and y == 2:  # mi -> ft
+        convertedVal = standardToStandard.get(1) * val
+        return convertedVal
+    if x == 2 and y == 1: # ft -> m 
+        convertedVal = standardToStandard.get(2) * val
+        return convertedVal
+
+def standardMetricConversion(x, y, val):
+    # miles to metric
+    if x == 1 and y == 3:  # miles -> km
+        convertedVal = standardMetric.get(1) * val
+        return convertedVal
+    if x == 1 and y == 4: # miles -> m 
+        convertedVal = standardMetric.get(2) * val
+        return convertedVal
+    if x == 1 and y == 5:  # miles -> cm
         convertedVal = metricToMetric.get(3) * val
         return convertedVal
 
-
+    # Feet to metric
+    if x == 2 and y == 3: # ft -> km 
+        convertedVal = metricToMetric.get(4) * val
+        return convertedVal    
+    if x == 2 and y == 4:  # ft -> m
+        convertedVal = metricToMetric.get(5) * val
+        return convertedVal
+    if x == 2 and y == 5: # ft -> cm 
+        convertedVal = metricToMetric.get(6) * val
+        return convertedVal 
 
 if convertFrom >= 3 and convertTo >= 3:
     finalVal = metricToMetricConversion(convertFrom, convertTo, valueToConvert)
+elif convertFrom <=3 and convertTo <= 3:
+    finalVal = metricToMetricConversion(convertFrom, convertTo, valueToConvert)
+else: 
+    finalVal = standardMetricConversion(convertFrom, convertTo, valueToConvert)
 
 
-print(finalVal)
+print("{} {} to {} = {} {}".format(valueToConvert, convertFrom, convertTo, finalVal, convertFrom))
 
     
 
