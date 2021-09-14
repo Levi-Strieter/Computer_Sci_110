@@ -67,9 +67,9 @@ units = {
     5: "cm",
 }
 metricToMetric = {
-    1: 1000, # Kilo
+    1: 1000,  # Kilo
     2: .01,  # Centi
-    3: .001  # Meter
+    3: 1      # Meter
 }
 standardToStandard = {
     1: 5280,           # mi -> ft 
@@ -99,17 +99,17 @@ while True:
 def metricToMetricConversion(x,y,val):
     # Kilo
     if x == 3 and y == 4:  # Km -> m
-        convertedVal = metricToMetric.get(3) * val
+        convertedVal = metricToMetric.get(1) / val
         return convertedVal
     if x == 3 and y == 5: # km -> cm 
-        convertedVal = metricToMetric.get(2) * val
+        convertedVal = metricToMetric.get(2) / val
         return convertedVal
     # Meter
     if x == 4 and y == 3:  # m -> km
         convertedVal = metricToMetric.get(1) * val
         return convertedVal
     if x == 4 and y == 5: # m -> cm 
-        convertedVal = metricToMetric.get(3) * val
+        convertedVal = metricToMetric.get(2) / val
         return convertedVal   
     # Centimeter 
     if x == 5 and y == 3:  # cm -> km
@@ -153,12 +153,12 @@ def standardMetricConversion(x, y, val):
 if convertFrom >= 3 and convertTo >= 3:
     finalVal = metricToMetricConversion(convertFrom, convertTo, valueToConvert)
 elif convertFrom <=3 and convertTo <= 3:
-    finalVal = metricToMetricConversion(convertFrom, convertTo, valueToConvert)
+    finalVal = standardToStandardConversion(convertFrom, convertTo, valueToConvert)
 else: 
     finalVal = standardMetricConversion(convertFrom, convertTo, valueToConvert)
 
 
-print("{} {} to {} = {} {}".format(valueToConvert, convertFrom, convertTo, finalVal, convertFrom))
+print("{} {} to {} = {} {}".format(valueToConvert, units.get(convertFrom), units.get(convertTo), finalVal, units.get(convertTo)))
 
     
 
