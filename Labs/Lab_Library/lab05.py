@@ -1,4 +1,4 @@
-import math
+import cmath
 def sphereSA(radius) :
    return 4*math.pi*radius**2
 
@@ -14,9 +14,7 @@ c - int
 
 
 def root1(a,b,c):
-   discriminate = b**2 - 4 * a * c
-   return -b + math.sqrt(abs(discriminate)) / (2 * a)
+   return (-b + cmath.sqrt(b**2 - 4 * a * c)) / (2 * a)
 
 def root2(a,b,c):
-   discriminate = b**2 - 4 * a * c
-   return -b - math.sqrt(abs(discriminate)) / (2 * a)
+   return (-b - cmath.sqrt(b**2 - 4 * a * c)) / (2 * a)

@@ -151,9 +151,11 @@ def standardMetricConversion(x, y, val):
         return convertedVal 
 
 if convertFrom >= 3 and convertTo >= 3:
-    finalVal = metricToMetricConversion(convertFrom, convertTo, valueToConvert)
+    print("please choose to convert from only mi or ft to km, m, or cm!")
+    #finalVal = metricToMetricConversion(convertFrom, convertTo, valueToConvert)
 elif convertFrom <=3 and convertTo <= 3:
-    finalVal = standardToStandardConversion(convertFrom, convertTo, valueToConvert)
+    print("please choose to convert from only mi or ft to km, m, or cm!")
+    #finalVal = standardToStandardConversion(convertFrom, convertTo, valueToConvert)
 else: 
     finalVal = standardMetricConversion(convertFrom, convertTo, valueToConvert)
 
@@ -161,9 +163,6 @@ else:
 print("{} {} to {} = {} {}".format(valueToConvert, units.get(convertFrom), units.get(convertTo), finalVal, units.get(convertTo)))
 
     
-
-
-
 '''
 Write a program that reads in the name and salary of an employee. 
 Here the salary will denote an hourly wage, such as $9.25. Then ask how many hours 
@@ -183,7 +182,7 @@ while True:
     except ValueError:
         print("[!] please use only strings or ints [!]")
 
-pay = lambda wage, hours: (wage * 1.5)*hours if hours > 40 else wage * hours 
+pay = lambda wage, hours: (hours - 40 * (wage * 1.5)) + (40 * wage) if hours > 40 else wage * hours 
 
 totalPay = pay(wage, hoursWorked)
 
