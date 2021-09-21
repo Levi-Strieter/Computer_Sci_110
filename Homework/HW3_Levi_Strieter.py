@@ -35,7 +35,7 @@ for rows in range(0, Length):
         if rows == 0 or rows == Length - 1:
             print("*" * Length, "*" * Length)
         else:
-            print("*"*Length, "*", " "*(Length-1), "*")
+            print("*"*Length, "*", " "*(Length-4), "*")
     else:
         break
 
