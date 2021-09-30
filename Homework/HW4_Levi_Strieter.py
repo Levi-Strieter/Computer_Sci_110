@@ -5,7 +5,7 @@ finished = False
 while finished == False:
     try:
         x = int(input("Enter a qty for val 1: "))
-        y = int(input("Enter a qty for val 2: \n"))
+        y = int(input("Enter a qty for val 2: "))
         finished = True
     except ValueError:
         print("Enter a int")
@@ -15,11 +15,11 @@ sum = x + y
 difference = x - y
 product = x * y
 avg = (x + y) / 2
-distance = abs(x) - abs(y)
+distance = abs(abs(x) - abs(y))
 maximum = max(vals)
 minimum = min(vals)
 
-print("sum: %2d" % sum)
+print("\nsum: %2d" % sum)
 print("difference: %2d" % difference)
 print("product: %2d" % product)
 print("avg: %2d" % avg)
@@ -29,7 +29,7 @@ print("minimum: %2d" % minimum)
 
 print("\nProblem P3.17")
 
-string = input("Enter some text: \n")
+string = input("Enter some text: ")
 charsOnly = string.isalpha()
 upperOnly = string.isupper()
 lowerOnly = string.islower()
@@ -38,13 +38,13 @@ alphaNumOnly = string.isalnum()
 upperFirstLetter = string[0].isupper()
 endsPeriod = string[len(string)-1].endswith(".")
 
-print("Characters Only: %2d" % charsOnly)
-print("Upper Only: %2d" % upperOnly)
-print("lower Only: %2d" % lowerOnly)
-print("numbers Only: %2d" % numOnly)
-print("Alpha Only: %2d" % alphaNumOnly)
-print("Upper First Letter: %2d" % upperFirstLetter)
-print("end in periood: %2d" % endsPeriod)
+print("\nCharacters Only: %2s" % charsOnly)
+print("Upper Only: %2s" % upperOnly)
+print("lower Only: %2s" % lowerOnly)
+print("numbers Only: %2s" % numOnly)
+print("Alpha Only: %2s" % alphaNumOnly)
+print("Upper First Letter: %2s" % upperFirstLetter)
+print("end in periood: %2s" % endsPeriod)
 
 
 '''
@@ -56,34 +56,35 @@ Repeat until all tickets have been sold, and then display the total number of bu
 '''
 print("\nProblem P4.31")
 
-MAX_TICKETS_SOLD = 100
-MAX_TICKETS_BOUGHT = 4
 
-def ticketSeller(ticketsBought, totalTickets):
-    if ticketsBought > 20:
-        print("[!] Can Only Buy a maximum of 4 tickets [!]")
-        print("{} tickets remain".format( MAX_TICKETS_SOLD - totalTickets))
-        return False
-    else:
-        if totalTickets > 100:
-            print("[!] Can only buy {} tickets [!]".format(MAX_TICKETS_SOLD - totalTickets))
-            return False
-        else: 
-            print("{} tickets remain".format(totalTickets - MAX_TICKETS_SOLD))
-            return True 
-
+MAX_TICKETS = 100
+currentTickets = 0
 finished = False
-totalTickets = 0
-while finished == False:
-    try:
-        tickets = int(input("How many tickets do you need? "))
-        totalTickets += tickets
-        buy = ticketSeller(tickets, totalTickets)
-        if buy is not True:
-            continue
+def counter(currentTickets):
+    if currentTickets >= MAX_TICKETS:
+        if MAX_TICKETS - currentTickets == 0:
+            return "finished"
         else:
-            print("you bought {} tickets".format(tickets))
-            finished = True
+            return False
+    else:
+        return True
 
-    except ValueError:
-        print("[!] Enter only Integer [!]")
+while finished == False:
+    tickets = int(input("How many tickets do you want: "))
+    if tickets > 20 or tickets <= 0:
+        print("you can not buy over 4 tickets or negative tickets")
+    else:
+        currentTickets += tickets
+        allow = counter(currentTickets)
+        if allow == "finished":
+            print("All tickets are sold, thanks!!")
+            finished = True
+        elif allow == True:
+            print("Your party bought {} tickets.".format(tickets))
+        elif allow == False:
+            currentTickets -= tickets
+            print("Your party cannot buy {}".format(tickets))
+
+            
+        print(MAX_TICKETS - currentTickets, "remain")
+ 

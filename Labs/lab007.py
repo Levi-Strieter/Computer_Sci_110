@@ -34,13 +34,12 @@ print(string)
 string = "babbllingg"
 myString = ""
 for x in string:
-    check = x
-    for x in string:
-        if check == x:
+    for y in range(len(string[string.index(x):]),len(string)):
+        if x == y:
             myString = string.replace(x, "*")
+            
 
 print(myString)
-
 
 
 
