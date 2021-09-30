@@ -59,63 +59,22 @@ print("sphere volume: %4.2f" % vals[3])
 #  15       14137.17
 #  69       1.38×106
 
+window = graphics.GraphicsWindow(500, 500)
+canvas = window.canvas()
 
-class Bullseye(object):
-    def __init__(self, windowWidth=1000,windowHeight=1000):
-        self.windowWidth = windowWidth
-        self.windowHeight = windowHeight
-        self.center = [self.windowWidth / 2, self.windowHeight / 2]
-        self.circleDiameter = self.calculateLines()
-        self.anchors = self.getXY()
-        self.window = self.createWindow()
-        self.canv = self.createCanvas()
-        
+canvas.setColor(0, 255, 0)
+canvas.drawOval(0, 0, 500, 500)
 
-    def run(self):
-        self.Oval()
+canvas.setColor(255, 0, 0)
+canvas.drawOval(50, 50, 400, 400)
 
-    def createWindow(self):
-        w = graphics.GraphicsWindow(self.windowWidth, self.windowHeight)
-        return w
+canvas.setColor(0, 0, 255)
+canvas.drawOval(100, 100, 300, 300)
 
-    def createCanvas(self):
-        canv = self.window.canvas()
-        return canv
+canvas.setColor(255, 0, 255)
+canvas.drawOval(150, 150, 200, 200)
 
-    def destroy(self):
-        self.window.wait()
+canvas.setColor(255, 255, 255)
+canvas.drawOval(200, 200, 100, 100)
 
-    def calculateLines(self):
-        circleDiameter = ((self.windowWidth / 2) - 50) / 4
-        circleDiameter = round(circleDiameter)
-        return circleDiameter
-        
-
-    def getXY(self, x=500, y=500):
-        # start at center of canvas
-        # if iteration is 2 find width of other circle and then move x, y val to account for movement
-        anchors = {
-            "x": [],
-            "y": []
-        }
-        for z in range(4, 0, -1):
-            x = self.center[0] + ((self.circleDiameter * z) + 50)
-            anchors["x"].append(x)
-            y = self.center[1] + ((self.circleDiameter * z) + 50)
-            anchors["y"].append(y)
-
-        return anchors
-    
-    def Oval(self):
-        for value in self.anchors.values():
-            x = -1
-            self.canv.drawOval(662, 662, 112, 112)
-
-            # self.canv.drawOval(self.anchors[value[3]], self.anchors[value[3]], self.circleDiameter, self.circleDiameter)
-            self.destroy()
-
-if __name__ == "__main__":
-    # 50 x 50 starting circle
-    # gets bigger by 100
-    draw = Bullseye(1000,1000)
-    draw.run()
+window.wait()
