@@ -32,7 +32,14 @@ print("Thanks! It is now {} minutes after {} o'clock.".format(time[1], time[0]))
 string = input("Enter a random string: ").lower()
 print(string)
 string = "babbllingg"
+myString = ""
+for x in string:
+    check = x
+    for x in string:
+        if check == x:
+            myString = string.replace(x, "*")
 
+print(myString)
 
 
 
