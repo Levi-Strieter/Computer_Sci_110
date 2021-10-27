@@ -61,18 +61,23 @@ while guesses < 6:
         guesses = 10
 
 
-def twentyOne():
-    return 
 
 usersNumbers = []
 dealersNumbers = []
+dealerBust = False
 for x in range(0, 2):
     number = random.randint(1, 11)
-    dealerNum = random.randint(1, 21)
+    dealerNum = random.randint(1, 11)
     usersNumbers.append(number)
     dealersNumbers.append(dealerNum)
 finished = False
 while finished == False:
+    while sum(dealersNumbers) < 17:
+        nextNum = random.randint(1,11)
+        dealersNumbers.append(nextNum)
+        if sum(dealersNumbers) > 21:
+            print("The Dealer Busted, Numbers were", dealersNumbers, "\nYour Numbers were", usersNumbers)
+            dealerBust = True
     print("Your Numbers are,", end="")
     for num in usersNumbers:
         print(num, end=",")
@@ -84,19 +89,23 @@ while finished == False:
         usersNumbers.append(nextNum)
         if sum(usersNumbers) > 21:
             print("You Busted Suks to Suk")
+            print("Dealer had numbers", dealersNumbers)
             finished = True
     else:
-        while sum(dealersNumbers) < 17 and sum(usersNumbers) != sum(usersNumbers):
-            nextNum = random.randint(1,11)
-            dealersNumbers.append(nextNum)
-        if sum(dealersNumbers) > sum(usersNumbers):
+        if sum(dealersNumbers) > sum(usersNumbers) and dealerBust == False:
             print("The Dealer Wins, numbers were: ", end="")
             for num in dealersNumbers:
+                print(num, end=",")
+            print("\nYour numbers were ", end="")
+            for num in usersNumbers:
                 print(num, end=",")
             finished = True
         else: 
             print("You Win, numbers were: ", end="")
             for num in usersNumbers:
+                print(num, end=",")
+            print("Dealers numbers were: ", end="")
+            for num in dealersNumbers:
                 print(num, end=",")
             finished = True
     

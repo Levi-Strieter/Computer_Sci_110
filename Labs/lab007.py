@@ -4,6 +4,9 @@
 1.	Write a Python program that prompts the user to enter a 5-letter word,
  and then prints the first, third, and fifth letters of that word.
 '''
+import random
+
+
 string = input("Please enter a 5 letter word: ")
 print("The first, third, and fifth letters are:", string[0], string[2], string[4])
 
@@ -30,18 +33,26 @@ print("Thanks! It is now {} minutes after {} o'clock.".format(time[1], time[0]))
 
 
 string = input("Enter a random string: ").lower()
-print(string)
-string = "babbllingg"
-myString = ""
+repeatedLetters = []
+repeatedLettersIndex = 0
 for x in string:
-    for y in range(len(string[string.index(x):]),len(string)):
-        if x == y:
-            myString = string.replace(x, "*")
-            
+    repeated = string.count(x)
+    if repeated > 1:
+        if x not in repeatedLetters:
+            repeatedLetters.append(x) 
+string = list(string)
+for x in repeatedLetters:
+    firstOccurence = string.index(x)
+    for y in range(firstOccurence+1, len(string)):
+        if string[y] == repeatedLetters[repeatedLettersIndex]:
+            string[y] = "*"
+    repeatedLettersIndex += 1
+for x in string:
+    print(x, end="")
 
-print(myString)
+print()
 
-
+    
 
 
 string = input("Enter a string: ")

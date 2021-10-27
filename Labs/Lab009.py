@@ -10,7 +10,6 @@ for i in range(0,10):
 print(myList)
 
 import random
-from typing import List
 
 myList = []
 for i in range(0,10):
@@ -20,7 +19,7 @@ print(myList)
 myList = [1, 4, 16, 32, 64, 128, 256, 512, "Fred"]
 for x in myList:
     print(x, end=" ")
-
+print()
 myList = [-1, -2, -3, 1, 2, 3, -42]
 count = 0
 for x in myList:
@@ -45,28 +44,20 @@ equal = True
 for x in range(0, len(listA)):
     if listA[x] != listC[x]:
         equal = False
-if equal:
-    print("Lists are the same")
-else:
-    print("They are not equal") 
+print("Lists are same" if equal == True else "Lists are not equal")
+
 
 listA = ["Charlie", "Mary", "Fred", "Annie"]
 listB = []
 
-for x in listA:
-    listB.append(x)
+for x in listA: listB.append(x)
 print(listB)
 
 myList = []
 for x in range(0, 9):
-    userValue = int(input("Enter a interger: "))
+    userValue = int(input("Enter a int: "))
     myList.append(userValue)
-lastVal = 0
-nextVal = 0 
-currentTotal = 0
-for x in range(0, len(myList)):
-    if x % 2 == 0:
-        currentTotal = (myList[x] - myList[x+1]) + currentTotal
-    else:
-        currentTotal = (myList[x] + myList[x+1]) + currentTotal
+
+equation = myList[0] - myList[1] + myList[2] - myList[3] + myList[4] - myList[5] + myList[6] - myList[7] + myList[8] 
+print(equation)
 
