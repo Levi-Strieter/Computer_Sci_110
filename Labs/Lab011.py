@@ -81,6 +81,44 @@ while finished == False:
     finally:
         file.close()
 
+import sys
+print("Creating", sys.argv[2], "and transferring", sys.argv[1], "data")
+finished = False
+while finished == False:
+    try:
+        inputFile = open(sys.argv[1], "r")
+        outputFile = open(sys.argv[2], "w")
+
+        lineList = [line for line in inputFile]
+        lineList.reverse()
+        for line in lineList:
+            outputFile.write(line)
+        finished = True
+    except IOError as error:
+        print(error)
+    finally:
+        outputFile.close()
+        inputFile.close()
+
+
+
+finished = False
+while finished == False:
+    try:
+        numbers1File = open("Labs/FileLab/numbers1.txt", "r")
+        numbers2File = open("Labs/FileLab/numbers2.txt", "r")
+        num1Data = [line.rstrip() for line in numbers1File]
+        num2Data = [line.rstrip() for line in numbers2File]
+        overlap = [x for x in num2Data if x in num1Data]
+        finished = True
+    except IOError as error:
+        print(error)
+    finally:
+        numbers1File.close()
+        numbers2File.close()
+
+print(", ".join([str(x) for x in overlap]))
+
 
 
 
